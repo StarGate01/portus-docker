@@ -15,7 +15,7 @@ RUN apk add --no-cache ca-certificates git bash npm yarn tzdata openssl-dev \
     go get github.com/tools/godep && \
     git clone https://github.com/openSUSE/portusctl.git src/openSUSE/portusctl && \
     cd src/openSUSE/portusctl && godep restore && go build -o /usr/bin/portusctl *.go && \
-    cd / && rm -rf /root/go && echo "Cloning ${REPO_URL}#${REPO_URL}" && \
+    cd / && rm -rf /root/go && echo "Cloning ${REPO_URL}#${REPO_TAG}" && \
     cd /srv && git clone -b "${REPO_TAG}" "${REPO_URL}" Portus && \
     cd Portus && git rev-parse --short HEAD > VERSION && rm -rf .git && \
     yarn install --production=false && \
