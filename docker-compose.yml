@@ -17,47 +17,43 @@ services:
             - db:/var/lib/mysql:rw
         ports:
             - "3306:3306"
-        network_mode: host
 
     portus:
-        image: "stargate01/portus:head"
+        image: "stargate01/portus:latest"
         build: .
         restart: always
         volumes:
-            - ./config/certs:/opt/certs:ro
+            - ./config/certs/privkey.pem:/opt/certs/privkey.pem:ro
         env_file:
             - ./config/portus.env
         ports:
             - "3000:3000"
-        network_mode: host
 
     portus-bg:
-        image: "stargate01/portus:head"
+        image: "stargate01/portus:latest"
         build: .
         restart: always
         volumes:
-            - ./config/certs:/opt/certs:ro
+            - ./config/certs/privkey.pem:/opt/certs/privkey.pem:ro
         env_file:
             - ./config/portus.env
         environment:
             - PORTUS_BACKGROUND=true
-        network_mode: host
 
     registry:
         image: "registry:latest"
         volumes:
             - registry:/data:rw
-            - ./config/certs:/opt/certs:ro
+            - ./config/certs/certificate.pem:/opt/certs/certificate.pem:ro
         restart: always
         env_file:
             - ./config/registry.env
         environment: 
             REGISTRY_NOTIFICATIONS_ENDPOINTS: >
                 - name: portus
-                  url: http://redbox.fritz.box:3000/v2/webhooks/events
+                  url: http://portus.home:3000/v2/webhooks/events
                   timeout: 2000ms
                   threshold: 5
                   backoff: 10s
         ports:
             - "5000:5000"
-        network_mode: host
