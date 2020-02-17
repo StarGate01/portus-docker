@@ -7,7 +7,7 @@ This image builds itself directly from the official sources.
 
 SUSE does provide Dockerfiles for Portus, however those are either for development only, not compiled from the current source code in the repository, but rather from the precompiled packages from the OpenSUSE packet sources.
 
-This image is based on Alpine Linux and uses Docker multi-stage builds to keep its size down. It also precompiles all assets and builds a production version of the software. It was primarily written to run forks of the official code, or just to really control what code goes into your image.
+This image is based on Alpine Linux. It also precompiles all assets and builds a production version of the software. It was primarily written to run forks of the official code, or just to really control what code goes into your image.
 
 ## Compilation
 Build using Docker: `docker build -t stargate01/portus:latest .`
