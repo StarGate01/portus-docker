@@ -5,8 +5,7 @@ ARG VERSION_STRING="v2.5"
 
 ENV RACK_ENV=production RAILS_ENV=production NODE_ENV=production \
     GOROOT=/usr/lib/go GOPATH=/root/go/packages GEM_HOME=/srv/Portus/vendor/bundle/ruby/2.6.0 \
-    PORTUS_KEY_PATH=ap PORTUS_SECRET_KEY_BASE=ap PORTUS_PASSWORD=ap INCLUDE_ASSETS_GROUP=yes \
-    PORTUS_VERSION="${VERSION_STRING}"
+    PORTUS_KEY_PATH=ap PORTUS_SECRET_KEY_BASE=ap PORTUS_PASSWORD=ap INCLUDE_ASSETS_GROUP=yes
 ENV GEM_PATH=$GEM_HOME PATH=$PATH:$GOROOT/bin:$GOPATH/bin:$GOPATH/src/openSUSE/portusctl/bin:$GEM_HOME/bin
 
 WORKDIR $GOPATH
@@ -17,7 +16,7 @@ RUN apk add --no-cache ca-certificates git bash npm yarn tzdata openssl-dev \
     cd src/openSUSE/portusctl && godep restore && go build -o /usr/bin/portusctl *.go && \
     cd / && rm -rf /root/go && echo "Cloning ${REPO_URL}#${REPO_TAG}" && \
     cd /srv && git clone -b "${REPO_TAG}" "${REPO_URL}" Portus && \
-    cd Portus && git rev-parse --short HEAD > VERSION && rm -rf .git && \
+    cd Portus && echo "${VERSION_STRING}-$(git rev-parse --short HEAD)" > VERSION && rm -rf .git && \
     yarn install --production=false && \
     bundle install --without test development --with assets --path ./vendor/bundle && \
     gem install bundler -v 1.17.3 -i ./vendor/bundle/ruby/2.6.0 -n ./vendor/bundle/ruby/2.6.0/bin && \
