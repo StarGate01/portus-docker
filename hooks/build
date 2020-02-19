@@ -1,2 +1,0 @@
-#!/bin/sh
-docker build --build-arg REPO_URL=$REPO_URL --build-arg REPO_TAG=$REPO_TAG --build-arg VERSION_STRING=$VERSION_STRING -t $IMAGE_NAME .
