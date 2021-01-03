@@ -1,6 +1,6 @@
 FROM ruby:2.6.2-alpine
 ARG REPO_URL="https://github.com/StarGate01/Portus.git"
-ARG REPO_TAG="v2.5"
+ARG REPO_TAG="master"
 ARG VERSION_STRING="v2.5"
 
 ENV RACK_ENV=production RAILS_ENV=production NODE_ENV=production \
