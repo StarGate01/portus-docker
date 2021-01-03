@@ -1,5 +1,5 @@
 FROM ruby:2.6.2-alpine
-ARG REPO_URL="https://github.com/SUSE/Portus.git"
+ARG REPO_URL="https://github.com/StarGate01/Portus.git"
 ARG REPO_TAG="v2.5"
 ARG VERSION_STRING="v2.5"
 
