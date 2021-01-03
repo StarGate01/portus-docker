@@ -14,7 +14,7 @@ Build using Docker: `docker build -t stargate01/portus:latest .`
 
 Optional build arguments (`--build-arg`):
  - **VERSION_STRING**: The displayed version string. (Default: v2.5)
- - **REPO_TAG**: The Tag or branch of the repository to be built. (Default: v2.5)
+ - **REPO_TAG**: The Tag or branch of the repository to be built. (Default: master)
  - **REPO_URL**: The repository URL, if you would like to build a fork. (Default: https://github.com/StarGate01/Portus.git )
 
 ## Local Testing
