@@ -1,4 +1,8 @@
+[![Build Status](https://drone-github.chrz.de/api/badges/StarGate01/portus-docker/status.svg)](https://drone-github.chrz.de/StarGate01/portus-docker)
+[![Docker Pulls](https://img.shields.io/docker/pulls/stargate01/portus)](https://hub.docker.com/r/stargate01/portus)
+
 # Portus-Docker
+
 A lightweight Docker image containing an installation of [Portus by SUSE](https://github.com/SUSE/Portus.git), based on Alpine Linux.
 
 This image builds itself directly from the official sources.
