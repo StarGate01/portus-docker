@@ -9,7 +9,7 @@ ENV RACK_ENV=production RAILS_ENV=production NODE_ENV=production \
 ENV GEM_PATH=$GEM_HOME PATH=$PATH:$GOROOT/bin:$GOPATH/bin:$GOPATH/src/openSUSE/portusctl/bin:$GEM_HOME/bin
 
 WORKDIR $GOPATH
-RUN apk add --no-cache ca-certificates git bash npm yarn tzdata openssl-dev \
+RUN apk add --no-cache ca-certificates git bash npm yarn tzdata openssl-dev shared-mime-info \
         openldap-dev curl-dev mariadb-dev postgresql-dev make musl-dev go g++ && \
     go get github.com/tools/godep && \
     git clone https://github.com/openSUSE/portusctl.git src/openSUSE/portusctl && \
